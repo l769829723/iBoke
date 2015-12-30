@@ -1,0 +1,133 @@
+<form action="{% url 'myblog:publish' %}" method="post" class="form-group" title="edit-form">
+    {% csrf_token %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Write your story to shared.</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <input type="text" class="form-control" title="edit-title" placeholder="Title">
+            </div>
+            <div id="alerts"></div>
+            <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Font"> <i class="icon-font"></i> &nbsp; <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Font Size"> <i class="icon-text-width"></i> &nbsp; <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a data-edit="fontSize 5">
+                                <font size="5">Huge</font>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-edit="fontSize 3">
+                                <font size="3">Normal</font>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-edit="fontSize 1">
+                                <font size="1">Small</font>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default" data-edit="bold" title="Bold (Ctrl/Cmd+B)">
+                        <i class="icon-bold"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="italic" title="Italic (Ctrl/Cmd+I)">
+                        <i class="icon-italic"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="strikethrough" title="Strikethrough">
+                        <i class="icon-strikethrough"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="underline" title="Underline (Ctrl/Cmd+U)">
+                        <i class="icon-underline"></i>
+                    </a>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default" data-edit="insertunorderedlist" title="Bullet list">
+                        <i class="icon-list"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="insertorderedlist" title="Number list">
+                        <i class="icon-list-ol"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="outdent" title="Reduce indent (Shift+Tab)">
+                        <i class="icon-indent-left"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="indent" title="Indent (Tab)">
+                        <i class="icon-indent-right"></i>
+                    </a>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)">
+                        <i class="icon-align-left"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)">
+                        <i class="icon-align-center"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)">
+                        <i class="icon-align-right"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)">
+                        <i class="icon-align-justify"></i>
+                    </a>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="Hyperlink">
+                        <i class="icon-link"></i> &nbsp;
+                        <b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu input-append">
+                        <div class="form-inline">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="URL" data-edit="createLink">
+                                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">add</button>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-default btn-xs" data-edit="unlink" title="Remove Hyperlink">
+                        <i class="icon-cut"></i>
+                    </a>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default dropdown-toggle" title="Insert picture (or just drag &amp; drop)" id="pictureBtn">
+                        <i class="icon-picture"></i>
+                    </a>
+                    <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default" data-edit="undo" title="Undo (Ctrl/Cmd+Z)">
+                        <i class="icon-undo"></i>
+                    </a>
+                    <a class="btn btn-default" data-edit="redo" title="Redo (Ctrl/Cmd+Y)">
+                        <i class="icon-repeat"></i>
+                    </a>
+                </div>
+                <div class="btn-group btn-group-xs">
+                    <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+                </div>
+            </div>
+            <hr>
+            <div id="editor" title="edit-content">Go ahead&hellip;</div>
+        </div>
+        <div class="panel-footer">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tags">
+                <span class="input-group-btn">
+          <button class="btn btn-success" type="button" title="edit-submit">
+            <i class="icon-save"></i>
+            Publish
+          </button>
+        </span>
+            </div>
+        </div>
+    </div>
+</form>
