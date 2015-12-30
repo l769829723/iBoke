@@ -1,0 +1,51 @@
+{% extends 'myblog/base.html' %}
+
+{% block body %}
+<div class="col-xs-0 col-sm-2 col-md-3">
+</div>
+<div class="col-xs-12 col-sm-8 col-md-6">
+  <div class="panel panel-default" id="registerbox">
+    <div class="panel-heading"><span class="fui-bookmark"></span> Welcom to register Myblog App.</div>
+    <div class="panel-body">
+      <form id="register-form" method="post" action="{% url 'myblog:register' %}">
+      {% csrf_token %}
+        <div class="login-form">
+        <div class="form-group">
+            <input type="text" class="form-control login-field" value="" placeholder="Enter your first name" id="first-name" />
+            <label class="login-field-icon fui-new" for="first-name"></label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control login-field" value="" placeholder="Enter your last name" id="last-name" />
+            <label class="login-field-icon fui-new" for="last-name"></label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control login-field" value="" placeholder="Enter your E-mail" id="login-mail" />
+            <label class="login-field-icon fui-mail" for="login-mail"></label>
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass" />
+            <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control login-field" value="" placeholder="Password confirm" id="pass-confirm" />
+            <label class="login-field-icon fui-lock" for="pass-confirm"></label>
+          </div>
+
+          <label class="checkbox" for="checkbox2">
+            <input type="checkbox" checked="checked" value="" id="checkbox2" data-toggle="checkbox" checked="">
+            <a href="#">&lt;&lt;Private Policy&gt;&gt;</a>&nbsp;&nbsp;Igree the private policy. 
+          </label>
+          <button type="button" class="btn btn-success btn-lg btn-block" id="register">Sign up</button>
+          <a class="login-link" id="goLogin" href="{% url 'myblog:login' %}">Already have an account ?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-xs-0 col-sm-8 col-md-3">
+</div>
+{% endblock %}

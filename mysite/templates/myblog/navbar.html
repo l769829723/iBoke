@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-5">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="{% url 'myblog:index' %}">iBoke</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-5">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">最新</a></li>
+        <li><a href="#">小故事</a></li>
+        <li><a href="#">问题反馈</a></li>
+       </ul>
+      <form class="navbar-form navbar-left" action="#" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+            <span class="input-group-btn">
+              <button type="submit" class="btn"><span class="fui-search"></span></button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.lastname %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{user.lastname}} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'myblog:logoff' %}"><span class="fui-power"></span> logoff</a></li>
+            <li><a href="{% url 'myblog:userinfo' %}"><span class="fui-document"></span> myprofile</a></li>
+          </ul>
+        </li>
+        <li></li>
+        {% else %}
+        <li><a href="{% url 'myblog:login' %}"></span>Login</a></li>
+        {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+<!-- message -->
+<div id="msgbox"></div>

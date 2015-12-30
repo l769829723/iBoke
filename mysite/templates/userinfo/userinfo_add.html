@@ -1,0 +1,21 @@
+{% extends 'myblog/userinfo.html' %}
+
+{% block userinfo_content %}
+<div id="editor">
+  <h6 class="title-box">Write a document:</h6>
+  <form action="{% url 'myblog:publish' %}" method="post" class="form-group" id="pub-form">
+  {% csrf_token %}
+    <div class="form-group">
+      <input type="text" class="form-control" id="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" id="content" rows="10" placeholder="Content"></textarea>
+    </div>
+    <input class="tagsinput" id="tagsinput" data-role="tagsinput" value="" placeholder="Input doc type, and press 'Enter' key."/>
+    <div class="text-right">
+    <button type="button" class="btn btn-success" id="publish">Publish</button>
+    </div>
+    <br>
+  </form>
+</div>
+{% endblock %}

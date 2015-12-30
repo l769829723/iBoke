@@ -1,0 +1,69 @@
+{% extends 'myblog/base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-3" id="mymenu">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="sidebar-menu text-center">
+          <img src="{% static 'myblog/img/default-head.png' %}" class="img-circle">
+          {% if words %}
+          <hr>
+          <small>{{words|title|truncatechars:30}}</small>
+          {% endif %}
+          <hr>
+          <a href="#userMeun" class="nav-header menu-first collapsed text-center" data-toggle="collapse"><span class="fui-home"></span> Blog Manage</a>
+          <ul id="userMeun" class="nav nav-list collapse menu-second">
+            <li> <a id="alldoc" href="{% url 'myblog:userinfo' %}">All</a></li>
+            <li><span class="fui-new"></span> <a id="newdoc" href="{% url 'myblog:publish' %}">New</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-9 col-md-9">
+    {% block userinfo_content %}
+      {% if blogs %}
+        {% for e in blogs %}
+        <div class="panel panel-default" id="content-box">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-10 col-sm-8 col-md-10">
+                <strong class="title-box">{{forloop.counter}}. {{e.blog_title}}</strong>
+              </div>
+              <div class="col-xs-2 col-sm-4 col-md-2">
+                <form action="{% url 'myblog:delete' %}" method="post" class="form-group" id="modify-form" bokeid="{{e.id}}">
+                  {% csrf_token %}
+                    <div class="btn-group" role="group">
+                      <button title="edit" data-placement="top" data-toggle="tooltip" class="btn btn-success btn-xs" id="edit" type="button"><span class="fui-new"></span></button>
+                      <button title="delete" data-placement="top" data-toggle="tooltip" class="btn btn-danger btn-xs" id="delete" type="button"><span class="fui-trash"></span></button>
+                    </div>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <p>{{e.blog_body|linebreaks}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <hr class="hrstyle-default">
+        <div class="text-center">
+          <ul class="pagination-plain">
+            <li><a href="#fakelink"><span class="fui-arrow-left"></span></a></li>
+            <li><a href="#fakelink">1</a></li>
+            <li><a href="#fakelink"><span class="fui-arrow-right"></a></li>
+          </ul>
+        </div>
+      {% else %}
+      <blockquote>
+        <p class="title-box">You don't have anyone blog.</p>
+      </blockquote>
+      {% endif %}      
+    {% endblock %}
+  </div>
+</div>
+{% endblock %}

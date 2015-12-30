@@ -1,0 +1,38 @@
+{% extends 'myblog/base.html' %}
+
+{% block body %}
+<div class="row">
+  <div class="col-xs-9">
+    {% if blogs %}
+      {% for e in blogs %}
+      <blockquote>
+        <p class="title-box">{{e.blog_title}}</p>
+        <p>{{e.blog_body}}</p>
+        <small class="info-box">
+          <span class="fui-time"></span> {{e.blog_publish_date}}
+          <span class="fui-location"></span> City Shanghai .
+          <span class="fui-user"></span> {{e.user.username}}
+        </small>
+      </blockquote>
+      {% endfor %}
+      <hr>
+      <div class="text-center">
+        <ul class="pagination-plain">
+          <li><a href="#fakelink"><span class="fui-arrow-left"></span></a></li>
+          <li><a href="#fakelink">1</a></li>
+          <li><a href="#fakelink">5</a></li>
+          <li><a href="#fakelink">6</a></li>
+          <li><a href="#fakelink"><span class="fui-arrow-right"></a></li>
+        </ul>
+      </div>
+    {% else %}
+      <blockquote>
+        <p class="title-box">System date not found.</p>
+      </blockquote>
+    {% endif %}
+  </div>
+  <div class="col-xs-3">
+    
+  </div>
+</div>
+{% endblock %}

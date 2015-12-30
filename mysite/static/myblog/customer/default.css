@@ -1,0 +1,146 @@
+body{
+	/*min-height: 200px;*/ /*定义浏览器的高度*/
+	padding-top: 85px;
+    background-color: #efefef;
+	/* background-color: #BDC3C7; */
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	-o-font-smoothing: antialiased;
+	-ms-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+.hrstyle-default{
+	border:1px dashed #ECF0F1;
+}
+
+.hrstyle-inverse{
+	border:1px dashed #34495E;
+}
+
+.hrstyle-danger{
+	border:1px dashed #E74C3C;
+}
+
+.hrstyle-success{
+	border:1px dashed #2ECC71;
+}
+
+.hrstyle-info{
+	border:1px dashed #3498DB;
+}
+
+.info-box{
+	font-size: 12px;
+	font-style: italic;
+}
+
+.title-box{
+	font-size: 20px;
+	font-weight: bold;
+	border-left: 4px solid #1ABC9C;
+	padding-left: 10px;
+}
+
+footer{
+    background-color: #BDC3C7;
+    color: #7F8C8D;
+}
+
+.footer-title{
+	font-weight: bold 200;
+	color: #95A5A6;
+}
+
+/*   msgbox     */
+.msgbox{
+    display:block;
+    text-align: center;
+    top:50px;
+    width:100%;
+    position: fixed;
+    line-height: 30px;
+    font-size: 17px;
+    z-index: 1;
+}
+.msgbox.msgbox-info{
+	color:white;
+    background-color:#3498db;
+}
+
+.msgbox.msgbox-success{
+    color:white;
+    background-color:#2ecc71;
+}
+
+.msgbox.msgbox-waring{
+    color:white;
+    background-color:#f1c40f;
+}
+
+.msgbox.msgbox-danger{
+    color:white;
+    background-color:#e74c3c;
+}
+
+
+/*********sidebar**********/
+/*左侧菜单*/
+.sidebar-menu{
+    /*border-right: 1px solid #c4c8cb;*/
+}
+/*一级菜单*/
+.menu-first{
+    height:45px;
+    line-height:45px;
+    background-color: #e9e9e9;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 0;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+/*一级菜单鼠标划过状态*/
+.menu-first:hover{
+    text-decoration: none;
+    background-color: #d6d4d5;
+    border-top: 1px solid #b7b7b7;
+    border-bottom: 1px solid #acacac;
+}
+/*二级菜单*/
+.menu-second li a{
+    background-color: #f6f6f6;
+    height:31px;
+    line-height:31px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    font-size: 12px;
+    text-align:center;
+}
+/*二级菜单鼠标划过样式*/
+.menu-second li a:hover {
+    text-decoration: none;
+    background-color: #66c3ec;
+    border-top: 1px solid #83ceed;
+    border-bottom: 1px solid #83ceed;
+    border-right: 3px solid #F39C12;
+    border-left: 3px solid #66c3ec;
+    color:white;
+}
+/*二级菜单选中状态*/
+.menu-second-selected {
+    background-color: #66c3ec;
+    height:31px;
+    line-height:31px;
+    border-top: 1px solid #83ceed;
+    border-bottom: 1px solid #83ceed;
+    border-right: 3px solid #F39C12;
+    border-left: 3px solid #66c3ec;
+    text-align:center;
+}
+/*覆盖bootstrap的样式*/
+.nav-list,.nav-list li a{
+    padding: 0px;
+    margin: 0px;
+}
